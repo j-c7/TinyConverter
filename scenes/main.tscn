@@ -1,0 +1,523 @@
+[gd_scene load_steps=11 format=3 uid="uid://s8xuhm73kbmi"]
+
+[ext_resource type="Script" path="res://src/ui/TCUI.cs" id="1_0wu5y"]
+[ext_resource type="Script" path="res://src/App.cs" id="1_a024d"]
+[ext_resource type="Texture2D" uid="uid://4gygw4v3qxk4" path="res://content/textures/fondo.jpg" id="1_ly3nm"]
+[ext_resource type="Texture2D" uid="uid://c7ftpwvye0iym" path="res://content/icons/flip_head.svg" id="3_kruog"]
+[ext_resource type="Texture2D" uid="uid://d7kwoaw5ghl3" path="res://content/icons/timer_CCW_25.svg" id="3_uw06s"]
+[ext_resource type="Script" path="res://src/ui/Roll.cs" id="4_ekltc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_urigh"]
+bg_color = Color(0, 0, 0, 0.490196)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f457g"]
+bg_color = Color(0, 0, 0, 0.247059)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vhpqf"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wxlf7"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Main" type="Node"]
+
+[node name="App" type="Node" parent="."]
+script = ExtResource("1_a024d")
+
+[node name="UI" type="Control" parent="." node_paths=PackedStringArray("FormatModeOptionButton", "Quality", "ImportButton", "ImportLabel", "ImportFileDialog", "ExportButton", "ExportLabel", "ExportFileDialog", "StartButton", "ErrorPanel", "ErrorMessage", "CloseErrorButton", "SuccessItemList", "LoadingTex", "SuccessTex")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_0wu5y")
+AppPath = NodePath("../App")
+FormatModeOptionButton = NodePath("HBoxContainer/Body/Panel/Format/OptionButton")
+Quality = NodePath("HBoxContainer/Body/Panel/ImporMode/Quality")
+ImportButton = NodePath("HBoxContainer/Body/Panel/Import/Button")
+ImportLabel = NodePath("HBoxContainer/Body/Panel/Import/Panel/Label")
+ImportFileDialog = NodePath("HBoxContainer/Body/Panel/ImportFileDialog")
+ExportButton = NodePath("HBoxContainer/Body/Panel/ExportPath/Button")
+ExportLabel = NodePath("HBoxContainer/Body/Panel/ExportPath/Panel/Label")
+ExportFileDialog = NodePath("HBoxContainer/Body/Panel/ExportFolderDialog")
+StartButton = NodePath("HBoxContainer/Body/Panel/StartButton")
+ErrorPanel = NodePath("HBoxContainer/Body/Error")
+ErrorMessage = NodePath("HBoxContainer/Body/Error/ErrorMessage")
+CloseErrorButton = NodePath("HBoxContainer/Body/Error/Button")
+SuccessItemList = NodePath("HBoxContainer/Body/Panel/Tasks/SuccessItemList")
+LoadingTex = NodePath("HBoxContainer/Body/Panel/Cargando/Loading")
+SuccessTex = NodePath("HBoxContainer/Body/Panel/Cargando/Check")
+metadata/_edit_lock_ = true
+
+[node name="Background" type="TextureRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ly3nm")
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Sidebar" type="Panel" parent="UI/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/HBoxContainer/Sidebar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.95, 1)
+
+[node name="Title" type="Label" parent="UI/HBoxContainer/Sidebar/VBoxContainer"]
+editor_description = "TODO: Mas adelante substituir por un icono."
+custom_minimum_size = Vector2(1.45519e-11, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 60
+text = "TC"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Github" type="LinkButton" parent="UI/HBoxContainer/Sidebar/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 27
+text = "Github"
+
+[node name="Itchio" type="LinkButton" parent="UI/HBoxContainer/Sidebar/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 27
+text = "Itch.io"
+
+[node name="Youtube" type="LinkButton" parent="UI/HBoxContainer/Sidebar/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 27
+text = "Youtube"
+
+[node name="Body" type="Control" parent="UI/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="UI/HBoxContainer/Body"]
+custom_minimum_size = Vector2(800, 512)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_urigh")
+metadata/_edit_lock_ = true
+
+[node name="Panel2" type="Panel" parent="UI/HBoxContainer/Body/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -231.0
+offset_right = 50.0
+offset_bottom = -131.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_f457g")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="UI/HBoxContainer/Body/Panel/Panel2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 56
+text = "TC"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Format" type="Control" parent="UI/HBoxContainer/Body/Panel"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 305.0
+offset_top = 140.0
+offset_right = 305.0
+offset_bottom = 140.0
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="UI/HBoxContainer/Body/Panel/Format"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -14.0
+offset_right = 36.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Format"
+
+[node name="OptionButton" type="OptionButton" parent="UI/HBoxContainer/Body/Panel/Format"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = 15.0
+offset_right = 96.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ImporMode" type="Control" parent="UI/HBoxContainer/Body/Panel"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 500.0
+offset_top = 140.0
+offset_right = 500.0
+offset_bottom = 140.0
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="UI/HBoxContainer/Body/Panel/ImporMode"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -14.0
+offset_right = 64.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Quality"
+
+[node name="Quality" type="LineEdit" parent="UI/HBoxContainer/Body/Panel/ImporMode"]
+layout_mode = 0
+offset_left = -95.0
+offset_top = 15.0
+offset_right = 94.0
+offset_bottom = 46.0
+text = "0.75"
+placeholder_text = "0.75"
+max_length = 4
+virtual_keyboard_type = 3
+
+[node name="Import" type="Control" parent="UI/HBoxContainer/Body/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -61.0
+offset_right = -192.0
+offset_bottom = -61.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="UI/HBoxContainer/Body/Panel/Import"]
+layout_mode = 0
+offset_left = 127.0
+offset_right = 388.0
+offset_bottom = 45.0
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="UI/HBoxContainer/Body/Panel/Import/Panel"]
+layout_mode = 0
+offset_right = 260.0
+offset_bottom = 40.0
+text = "..."
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 3
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="UI/HBoxContainer/Body/Panel/Import"]
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 45.0
+text = "Import"
+metadata/_edit_lock_ = true
+
+[node name="ExportPath" type="Control" parent="UI/HBoxContainer/Body/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -11.0
+offset_right = -192.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="UI/HBoxContainer/Body/Panel/ExportPath"]
+layout_mode = 0
+offset_left = 127.0
+offset_right = 388.0
+offset_bottom = 45.0
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="UI/HBoxContainer/Body/Panel/ExportPath/Panel"]
+layout_mode = 0
+offset_right = 260.0
+offset_bottom = 40.0
+text = "..."
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 3
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="UI/HBoxContainer/Body/Panel/ExportPath"]
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 45.0
+text = "Export"
+metadata/_edit_lock_ = true
+
+[node name="StartButton" type="Button" parent="UI/HBoxContainer/Body/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = 39.0
+offset_right = 196.0
+offset_bottom = 99.0002
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start
+"
+metadata/_edit_lock_ = true
+
+[node name="Tasks" type="Panel" parent="UI/HBoxContainer/Body/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = 105.0
+offset_right = 196.0
+offset_bottom = 230.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="SuccessItemList" type="ItemList" parent="UI/HBoxContainer/Body/Panel/Tasks"]
+layout_mode = 2
+offset_top = 36.0
+offset_right = 385.0
+offset_bottom = 123.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vhpqf")
+allow_search = false
+
+[node name="Cargando" type="Control" parent="UI/HBoxContainer/Body/Panel"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 300.0
+offset_top = 364.0
+offset_right = 300.0
+offset_bottom = 364.0
+
+[node name="Panel" type="Panel" parent="UI/HBoxContainer/Body/Panel/Cargando"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -90.0
+offset_right = 242.0
+offset_bottom = 26.0
+
+[node name="Label" type="Label" parent="UI/HBoxContainer/Body/Panel/Cargando/Panel"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 116.0
+offset_bottom = 23.0
+text = "Working..."
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="Loading" type="TextureRect" parent="UI/HBoxContainer/Body/Panel/Cargando"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.043
+anchor_top = 0.521
+anchor_right = 0.043
+anchor_bottom = 0.521
+offset_left = 91.0
+offset_top = 9.0
+offset_right = 111.0
+offset_bottom = 29.0
+grow_vertical = 2
+pivot_offset = Vector2(10, 10)
+texture = ExtResource("3_uw06s")
+expand_mode = 1
+script = ExtResource("4_ekltc")
+
+[node name="Check" type="TextureRect" parent="UI/HBoxContainer/Body/Panel/Cargando"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.043
+anchor_top = 0.521
+anchor_right = 0.043
+anchor_bottom = 0.521
+offset_left = 91.0
+offset_top = 9.0
+offset_right = 111.0
+offset_bottom = 29.0
+grow_vertical = 2
+pivot_offset = Vector2(10, 10)
+texture = ExtResource("3_kruog")
+expand_mode = 1
+
+[node name="ImportFileDialog" type="FileDialog" parent="UI/HBoxContainer/Body/Panel"]
+title = "Import File"
+initial_position = 2
+size = Vector2i(1000, 500)
+max_size = Vector2i(1000, 1000)
+theme_override_colors/folder_icon_color = Color(1, 0, 0.451201, 1)
+ok_button_text = "Open"
+mode_overrides_title = false
+file_mode = 1
+access = 2
+
+[node name="ExportFolderDialog" type="FileDialog" parent="UI/HBoxContainer/Body/Panel"]
+title = "Export"
+initial_position = 2
+size = Vector2i(1000, 500)
+max_size = Vector2i(1000, 500)
+theme_override_colors/folder_icon_color = Color(1, 0, 0.451201, 1)
+ok_button_text = "Select Current Folder"
+mode_overrides_title = false
+file_mode = 2
+access = 2
+
+[node name="Error" type="PanelContainer" parent="UI/HBoxContainer/Body"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -125.0
+offset_right = 250.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wxlf7")
+
+[node name="ErrorHader" type="Label" parent="UI/HBoxContainer/Body/Error"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 31
+text = "ERROR"
+horizontal_alignment = 1
+
+[node name="ErrorMessage" type="Label" parent="UI/HBoxContainer/Body/Error"]
+custom_minimum_size = Vector2(1.45519e-11, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "Ruta de importación no asignada"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="UI/HBoxContainer/Body/Error"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "OK"
+
+[node name="Version" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 288.0
+offset_top = 219.0
+offset_right = 377.0
+offset_bottom = 252.0
+theme_override_font_sizes/font_size = 20
+text = "0.7 alpha"

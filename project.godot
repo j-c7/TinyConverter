@@ -1,0 +1,25 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Tiny Conversor"
+run/main_scene="res://scenes/main.tscn"
+config/features=PackedStringArray("4.2", "C#", "Forward Plus")
+boot_splash/image="res://content/icons/timer_CCW_25.svg"
+config/icon="res://icon.svg"
+
+[dotnet]
+
+project/assembly_name="Tiny Converter"
+
+[rendering]
+
+renderer/rendering_method="mobile"
