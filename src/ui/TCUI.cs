@@ -4,7 +4,7 @@ using System;
 using System.Globalization;
 using System.IO;
 
-namespace TinyConversor;
+namespace TinyConverter;
 
 public partial class TCUI : Control
 {
@@ -165,14 +165,14 @@ public partial class TCUI : Control
 		_app.FinalizeTask -= OnFinalizeTask;
 	}
 
-	void InitializeFormatModes()
+	private void InitializeFormatModes()
 	{
 		if (FormatModeOptionButton is null) return;
 		foreach (var item in OutFormatList)
 			FormatModeOptionButton.AddItem(item);
 	}
 
-	void OnFormatModeSelected(long p_index)
+	private void OnFormatModeSelected(long p_index)
 	{
 		switch (p_index)
 		{
@@ -197,23 +197,23 @@ public partial class TCUI : Control
 		_app.OutFormat = _outFormats;
 	}
 
-	void OnPressImportButton()
+	private void OnPressImportButton()
 	{
 		ImportFileDialog.Visible = true;
 	}
 
-	void OnImportFileSelected(string[] p_path)
+	private void OnImportFileSelected(string[] p_path)
 	{
 		ImportLabel.Text = p_path[0].Replace(Path.GetFileName(p_path[0]), "");
 		_app.SetSourcesPath(p_path);
 	}
 
-	void OnPressExportButton()
+	private void OnPressExportButton()
 	{
 		ExportFileDialog.Visible = true;
 	}
 
-	void OnExportDirSelected(string p_path)
+	private void OnExportDirSelected(string p_path)
 	{
 		ExportLabel.Text = p_path;
 		_app.SetOutPath(p_path);
@@ -228,7 +228,7 @@ public partial class TCUI : Control
 				ErrorPanel.Visible = true;
 
 			if (ErrorMessage is not null)
-				ErrorMessage.Text = "Ruta de importación no asignada";
+				ErrorMessage.Text = "Unassigned import path";
 
 			return;
 		}
@@ -239,7 +239,7 @@ public partial class TCUI : Control
 				ErrorPanel.Visible = true;
 
 			if (ErrorMessage is not null)
-				ErrorMessage.Text = "Ruta de salida no asignada";
+				ErrorMessage.Text = "unassigned export path";
 
 			return;
 		}

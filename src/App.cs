@@ -4,7 +4,7 @@ using System;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace TinyConversor;
+namespace TinyConverter;
 
 public partial class App : Node, IApp
 {
@@ -58,7 +58,7 @@ public partial class App : Node, IApp
         foreach (var p in _paths)
         {
             var err = await ConvertImage(p, Path.GetFileName(p).Replace(Path.GetExtension(p), ""));
-            Res(err, "Operación exitosa" + " " + p, Path.GetFileName(p));
+            Res(err, "Successful" + " " + p, Path.GetFileName(p));
             FinalizeTask.Invoke(Path.GetFileName(p));
         }
         void Res(Error p_error, string p_success_msg, string p_img_name)

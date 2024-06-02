@@ -65,8 +65,8 @@ ErrorPanel = NodePath("HBoxContainer/Body/Error")
 ErrorMessage = NodePath("HBoxContainer/Body/Error/ErrorMessage")
 CloseErrorButton = NodePath("HBoxContainer/Body/Error/Button")
 SuccessItemList = NodePath("HBoxContainer/Body/Panel/Tasks/SuccessItemList")
-LoadingTex = NodePath("HBoxContainer/Body/Panel/Cargando/Loading")
-SuccessTex = NodePath("HBoxContainer/Body/Panel/Cargando/Check")
+LoadingTex = NodePath("HBoxContainer/Body/Panel/Loading/Loading")
+SuccessTex = NodePath("HBoxContainer/Body/Panel/Loading/Check")
 metadata/_edit_lock_ = true
 
 [node name="Background" type="TextureRect" parent="UI"]
@@ -386,7 +386,7 @@ offset_bottom = 123.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_vhpqf")
 allow_search = false
 
-[node name="Cargando" type="Control" parent="UI/HBoxContainer/Body/Panel"]
+[node name="Loading" type="Control" parent="UI/HBoxContainer/Body/Panel"]
 layout_mode = 2
 anchors_preset = 0
 offset_left = 300.0
@@ -394,7 +394,7 @@ offset_top = 364.0
 offset_right = 300.0
 offset_bottom = 364.0
 
-[node name="Panel" type="Panel" parent="UI/HBoxContainer/Body/Panel/Cargando"]
+[node name="Panel" type="Panel" parent="UI/HBoxContainer/Body/Panel/Loading"]
 visible = false
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
@@ -402,7 +402,7 @@ offset_left = -90.0
 offset_right = 242.0
 offset_bottom = 26.0
 
-[node name="Label" type="Label" parent="UI/HBoxContainer/Body/Panel/Cargando/Panel"]
+[node name="Label" type="Label" parent="UI/HBoxContainer/Body/Panel/Loading/Panel"]
 layout_mode = 0
 offset_left = 10.0
 offset_right = 116.0
@@ -411,7 +411,7 @@ text = "Working..."
 clip_text = true
 text_overrun_behavior = 3
 
-[node name="Loading" type="TextureRect" parent="UI/HBoxContainer/Body/Panel/Cargando"]
+[node name="Loading" type="TextureRect" parent="UI/HBoxContainer/Body/Panel/Loading"]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -429,7 +429,7 @@ texture = ExtResource("3_uw06s")
 expand_mode = 1
 script = ExtResource("4_ekltc")
 
-[node name="Check" type="TextureRect" parent="UI/HBoxContainer/Body/Panel/Cargando"]
+[node name="Check" type="TextureRect" parent="UI/HBoxContainer/Body/Panel/Loading"]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -497,7 +497,7 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(1.45519e-11, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 23
-text = "Ruta de importación no asignada"
+text = "Unassigned path"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -2,7 +2,7 @@ using Godot.Collections;
 using Godot;
 using System.Threading.Tasks;
 using System;
-namespace TinyConversor;
+namespace TinyConverter;
 
 public interface IApp
 {
