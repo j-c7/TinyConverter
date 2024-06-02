@@ -243,6 +243,7 @@ public partial class TCUI : Control
 
 			return;
 		}
+		SuccessTex.Visible = false;
 		LoadingTex.Visible = true;
 		SuccessItemList?.Clear();
 
