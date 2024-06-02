@@ -12,7 +12,7 @@ public partial class App : Node, IApp
 
     public OutFormats OutFormat { get; set; } = OutFormats.Jpg;
 
-    private float _jpgQuality = 0.75f;
+    private float _jpgQuality = 0.9f;
 
     public float JpgQuality
     {
