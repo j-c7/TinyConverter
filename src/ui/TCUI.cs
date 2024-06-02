@@ -71,6 +71,8 @@ public partial class TCUI : Control
 	[Export]
 	public Button StartButton = null;
 
+	private bool _lockStartButton = false;
+
 	#endregion
 
 	#region Error
@@ -221,6 +223,10 @@ public partial class TCUI : Control
 
 	private async void OnStartButton()
 	{
+		if(_lockStartButton)
+			return;
+		
+		_lockStartButton = true;
 		await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
 		if (ImportLabel.Text == "" || ImportLabel.Text == "...")
 		{
@@ -261,6 +267,7 @@ public partial class TCUI : Control
 			return;
 		}
 		SuccessTex.Visible = true;
+		_lockStartButton = false;
 	}
 
 	private void OnQualityChanged(string p_text)
