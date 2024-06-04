@@ -19,7 +19,7 @@ public partial class App : Node, IApp
         get => _jpgQuality;
         set => _jpgQuality = Mathf.Clamp(value, 0.0f, 1.0f);
     }
-    
+
     #endregion
 
     #region Path
@@ -29,13 +29,13 @@ public partial class App : Node, IApp
     private string _outPath;
 
     private Array<string> _paths = new();
-    
+
     #endregion
 
     #region Delegates
 
     public Action<string> FinalizeTask { get; set; }
-    
+
     #endregion
 
     public void SetSourcesPath(string[] p_path)
@@ -79,13 +79,13 @@ public partial class App : Node, IApp
 
     private async Task<Error> ConvertImage(string p_path, string p_file_name)
     {
+        Image img = new();
+        Error err = new();
         Task<Error> task = new(() =>
         {
-            Image img = new();
             Error error = img.Load(p_path);
             if (error == Error.Ok)
             {
-                Error err = new();
                 switch (OutFormat)
                 {
                     case OutFormats.Jpg:
@@ -102,6 +102,8 @@ public partial class App : Node, IApp
                 }
                 if (err != Error.Ok)
                     error = err;
+
+                img.Dispose();
             }
             return error;
         });

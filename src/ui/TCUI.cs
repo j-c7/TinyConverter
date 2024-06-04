@@ -227,7 +227,6 @@ public partial class TCUI : Control
 			return;
 		
 		_lockStartButton = true;
-		await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
 		if (ImportLabel.Text == "" || ImportLabel.Text == "...")
 		{
 			if (ErrorPanel is not null)
@@ -255,7 +254,6 @@ public partial class TCUI : Control
 
 		var s = await _app.Start();
 		LoadingTex.Visible = false;
-
 		if (!s.Success)
 		{
 			if (ErrorPanel is not null)
