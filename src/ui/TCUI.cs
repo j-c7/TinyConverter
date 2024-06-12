@@ -1,4 +1,3 @@
-using Godot;
 using Godot.Collections;
 using System;
 using System.Globalization;
@@ -6,7 +5,7 @@ using System.IO;
 
 namespace TinyConverter;
 
-public partial class TCUI : Control
+public partial class TCUI : UIBase
 {
 	#region APP
 
@@ -22,6 +21,7 @@ public partial class TCUI : Control
 	[ExportGroup("Modes")]
 
 	[Export]
+	[CheckRequired("")]
 	public OptionButton FormatModeOptionButton = null;
 
 	readonly Array<StringName> OutFormatList = new()
@@ -34,21 +34,25 @@ public partial class TCUI : Control
 	public OutFormats _outFormats;
 
 	[Export]
+	[CheckRequired("")]
 	public LineEdit Quality = null;
 
 	#endregion
 
-	[ExportGroup("Paths")]
+	[ExportGroup("Nodes")]
 
 	#region ImportPath
 
 	[Export]
+	[CheckRequired("")]
 	public Button ImportButton = null;
 
 	[Export]
+	[CheckRequired("")]
 	public Label ImportLabel = null;
 
 	[Export]
+	[CheckRequired("")]
 	public FileDialog ImportFileDialog = null;
 
 	#endregion
@@ -56,12 +60,15 @@ public partial class TCUI : Control
 	#region ExportPath
 
 	[Export]
+	[CheckRequired("")]
 	public Button ExportButton = null;
 
 	[Export]
+	[CheckRequired("")]
 	public Label ExportLabel = null;
 
 	[Export]
+	[CheckRequired("")]
 	public FileDialog ExportFileDialog = null;
 
 	#endregion
@@ -69,6 +76,7 @@ public partial class TCUI : Control
 	#region StartPath
 
 	[Export]
+	[CheckRequired("")]
 	public Button StartButton = null;
 
 	private bool _lockStartButton = false;
@@ -78,12 +86,15 @@ public partial class TCUI : Control
 	#region Error
 
 	[Export]
+	[CheckRequired("")]
 	public PanelContainer ErrorPanel = null;
 
 	[Export]
+	[CheckRequired("")]
 	public Label ErrorMessage = null;
 
 	[Export]
+	[CheckRequired("")]
 	public Button CloseErrorButton = null;
 
 	#endregion
@@ -91,85 +102,54 @@ public partial class TCUI : Control
 	#region Success
 
 	[Export]
+	[CheckRequired("")]
 	public ItemList SuccessItemList = null;
 
 	[Export]
+	[CheckRequired("")]
 	public TextureRect LoadingTex = null;
 
 	[Export]
+	[CheckRequired("")]
 	public TextureRect SuccessTex = null;
 
 	#endregion
 
 	public override void _EnterTree()
 	{
+		base._EnterTree();
 		_app = GetNodeOrNull(AppPath) as IApp;
-		if (_app is null)
-		{
-			GD.PrintErr("App not found");
-			GetTree().Quit();
-		}
-
+		CheckRequiredNode(_app, "App node not found");
+		
 		InitializeFormatModes();
-		if (FormatModeOptionButton is not null)
-			FormatModeOptionButton.ItemSelected += OnFormatModeSelected;
-
-		if (ImportButton is not null)
-			ImportButton.ButtonDown += OnPressImportButton;
-
-		if (ImportFileDialog is not null)
-			ImportFileDialog.FilesSelected += OnImportFileSelected;
-
-		if (ExportButton is not null)
-			ExportButton.ButtonDown += OnPressExportButton;
-
-		if (ExportFileDialog is not null)
-			ExportFileDialog.DirSelected += OnExportDirSelected;
-
-		if (StartButton is not null)
-			StartButton.ButtonDown += OnStartButton;
-
-		if (Quality is not null)
-			Quality.TextChanged += OnQualityChanged;
-
-		if (CloseErrorButton is not null)
-			CloseErrorButton.ButtonDown += OnCloseErrorButton;
+		FormatModeOptionButton.ItemSelected += OnFormatModeSelected;
+		ImportButton.ButtonDown += OnPressImportButton;
+		ImportFileDialog.FilesSelected += OnImportFileSelected;
+		ExportButton.ButtonDown += OnPressExportButton;
+		ExportFileDialog.DirSelected += OnExportDirSelected;
+		StartButton.ButtonDown += OnStartButton;
+		Quality.TextChanged += OnQualityChanged;
+		CloseErrorButton.ButtonDown += OnCloseErrorButton;
 
 		_app.FinalizeTask += OnFinalizeTask;
 	}
 
 	public override void _ExitTree()
 	{
-		if (FormatModeOptionButton is not null)
-			FormatModeOptionButton.ItemSelected -= OnFormatModeSelected;
-
-		if (ImportButton is not null)
-			ImportButton.ButtonDown -= OnPressImportButton;
-
-		if (ImportFileDialog is not null)
-			ImportFileDialog.FilesSelected -= OnImportFileSelected;
-
-		if (ExportButton is not null)
-			ExportButton.ButtonDown -= OnPressExportButton;
-
-		if (ExportFileDialog is not null)
-			ExportFileDialog.DirSelected -= OnExportDirSelected;
-
-		if (StartButton is not null)
-			StartButton.ButtonDown -= OnStartButton;
-
-		if (Quality is not null)
-			Quality.TextChanged -= OnQualityChanged;
-
-		if (CloseErrorButton is not null)
-			CloseErrorButton.ButtonDown -= OnCloseErrorButton;
+		FormatModeOptionButton.ItemSelected -= OnFormatModeSelected;
+		ImportButton.ButtonDown -= OnPressImportButton;
+		ImportFileDialog.FilesSelected -= OnImportFileSelected;
+		ExportButton.ButtonDown -= OnPressExportButton;
+		ExportFileDialog.DirSelected -= OnExportDirSelected;
+		StartButton.ButtonDown -= OnStartButton;
+		Quality.TextChanged -= OnQualityChanged;
+		CloseErrorButton.ButtonDown -= OnCloseErrorButton;
 
 		_app.FinalizeTask -= OnFinalizeTask;
 	}
 
 	private void InitializeFormatModes()
 	{
-		if (FormatModeOptionButton is null) return;
 		foreach (var item in OutFormatList)
 			FormatModeOptionButton.AddItem(item);
 	}
