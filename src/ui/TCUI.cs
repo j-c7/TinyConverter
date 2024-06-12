@@ -1,5 +1,4 @@
 using Godot.Collections;
-using System;
 using System.Globalization;
 using System.IO;
 
@@ -209,22 +208,16 @@ public partial class TCUI : UIBase
 		_lockStartButton = true;
 		if (ImportLabel.Text == "" || ImportLabel.Text == "...")
 		{
-			if (ErrorPanel is not null)
-				ErrorPanel.Visible = true;
-
-			if (ErrorMessage is not null)
-				ErrorMessage.Text = "Unassigned import path";
+			ErrorPanel.Visible = true;
+			ErrorMessage.Text = "Unassigned import path";
 
 			return;
 		}
 
 		if (ExportLabel.Text == "" || ExportLabel.Text == "...")
 		{
-			if (ErrorPanel is not null)
-				ErrorPanel.Visible = true;
-
-			if (ErrorMessage is not null)
-				ErrorMessage.Text = "unassigned export path";
+			ErrorPanel.Visible = true;
+			ErrorMessage.Text = "unassigned export path";
 
 			return;
 		}
@@ -236,11 +229,8 @@ public partial class TCUI : UIBase
 		LoadingTex.Visible = false;
 		if (!s.Success)
 		{
-			if (ErrorPanel is not null)
-				ErrorPanel.Visible = true;
-
-			if (ErrorMessage is not null)
-				ErrorMessage.Text = s.Message;
+			ErrorPanel.Visible = true;
+			ErrorMessage.Text = s.Message;
 
 			return;
 		}
