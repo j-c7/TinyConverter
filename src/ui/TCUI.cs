@@ -225,15 +225,8 @@ public partial class TCUI : UIBase
 		LoadingTex.Visible = true;
 		SuccessItemList?.Clear();
 
-		var s = await _app.Start();
+		await _app.Start();
 		LoadingTex.Visible = false;
-		if (!s.Success)
-		{
-			ErrorPanel.Visible = true;
-			ErrorMessage.Text = s.Message;
-
-			return;
-		}
 		SuccessTex.Visible = true;
 		_lockStartButton = false;
 	}
@@ -250,8 +243,15 @@ public partial class TCUI : UIBase
 		ErrorPanel.Visible = false;
 	}
 
-	private void OnFinalizeTask(string p_name)
+	private void OnFinalizeTask(Response p_response)
 	{
-		SuccessItemList?.AddItem(p_name);
+		if (!p_response.Success)
+		{
+			ErrorPanel.Visible = true;
+			ErrorMessage.Text = p_response.Message;
+
+			return;
+		}
+		SuccessItemList?.AddItem(p_response.FileName);
 	}
 }

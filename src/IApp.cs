@@ -1,5 +1,3 @@
-using Godot.Collections;
-using Godot;
 using System.Threading.Tasks;
 using System;
 namespace TinyConverter;
@@ -12,11 +10,11 @@ public interface IApp
 
 	string OutPath { get; }
 
-	Action<string> FinalizeTask { get; set; }
+	Action<Response> FinalizeTask { get; set; }
 
 	void SetSourcesPath(string[] p_path);
 
 	void SetOutPath(string p_path);
 
-	Task<Response> Start();
+	Task Start();
 }

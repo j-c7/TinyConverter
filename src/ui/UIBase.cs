@@ -7,13 +7,14 @@ namespace TinyConverter;
 public partial class UIBase : Control
 {
 
-    public override void _EnterTree()
-    {
-        Initialize();
-    }
-
-    private void Initialize()
+	public override void _EnterTree()
 	{
+		Initialize();
+	}
+
+	private void Initialize()
+	{
+
 		// Properties
 		PropertyInfo[] properies = this.GetType().GetProperties(
 			BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic
