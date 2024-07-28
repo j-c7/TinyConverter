@@ -25,10 +25,10 @@ public partial class UIBase : Control
 			IEnumerable<Attribute> attributes = pInfo.GetCustomAttributes();
 			foreach (Attribute attr in attributes)
 			{
-				if (attr is CheckRequired)
+				if (attr is AssertNode)
 				{
-					CheckRequired prop = attr as CheckRequired;
-					CheckRequiredNode(pInfo.GetValue(this) as Node,
+					AssertNode prop = attr as AssertNode;
+					AssertNode(pInfo.GetValue(this) as Node,
 						$"The node '{pInfo.Name}' is required in '{this.Name}' {prop.ErrorMessage}"	
 					);
 				}
@@ -45,10 +45,10 @@ public partial class UIBase : Control
 			IEnumerable<Attribute> attributes = fInfo.GetCustomAttributes();
 			foreach (Attribute attr in attributes)
 			{
-				if (attr is CheckRequired)
+				if (attr is AssertNode)
 				{
-					CheckRequired prop = attr as CheckRequired;
-					CheckRequiredNode(
+					AssertNode prop = attr as AssertNode;
+					AssertNode(
 						fInfo.GetValue(this) as Node,
 						$"The node '{fInfo.Name}' is required in '{this.Name}' {prop.ErrorMessage}"
 					);
@@ -57,9 +57,9 @@ public partial class UIBase : Control
 		}
 	}
 
-	protected void CheckRequiredNode<T>(T p_node, string p_what = "", bool p_stop_app = true)
+	protected void AssertNode<T>(T p_node, string p_what = "", bool p_stop_app = true)
 	{
-		if(p_node is null)
+		if(p_node is null && OS.IsDebugBuild())
 		{
 			GD.PrintErr(p_what);
 			if(p_stop_app)

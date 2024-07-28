@@ -20,7 +20,7 @@ public partial class TCUI : UIBase
 	[ExportGroup("Modes")]
 
 	[Export]
-	[CheckRequired("")]
+	[AssertNode("")]
 	public OptionButton FormatModeOptionButton = null;
 
 	readonly Array<StringName> OutFormatList = new()
@@ -33,7 +33,7 @@ public partial class TCUI : UIBase
 	public OutFormats _outFormats;
 
 	[Export]
-	[CheckRequired("")]
+	[AssertNode("")]
 	public LineEdit Quality = null;
 
 	#endregion
@@ -43,15 +43,15 @@ public partial class TCUI : UIBase
 	#region ImportPath
 
 	[Export]
-	[CheckRequired("")]
+	[AssertNode("")]
 	public Button ImportButton = null;
 
 	[Export]
-	[CheckRequired("")]
+	[AssertNode("")]
 	public Label ImportLabel = null;
 
 	[Export]
-	[CheckRequired("")]
+	[AssertNode("")]
 	public FileDialog ImportFileDialog = null;
 
 	#endregion
@@ -59,15 +59,15 @@ public partial class TCUI : UIBase
 	#region ExportPath
 
 	[Export]
-	[CheckRequired("")]
+	[AssertNode("")]
 	public Button ExportButton = null;
 
 	[Export]
-	[CheckRequired("")]
+	[AssertNode("")]
 	public Label ExportLabel = null;
 
 	[Export]
-	[CheckRequired("")]
+	[AssertNode("")]
 	public FileDialog ExportFileDialog = null;
 
 	#endregion
@@ -75,7 +75,7 @@ public partial class TCUI : UIBase
 	#region StartPath
 
 	[Export]
-	[CheckRequired("")]
+	[AssertNode("")]
 	public Button StartButton = null;
 
 	private bool _lockStartButton = false;
@@ -85,15 +85,15 @@ public partial class TCUI : UIBase
 	#region Error
 
 	[Export]
-	[CheckRequired("")]
+	[AssertNode("")]
 	public PanelContainer ErrorPanel = null;
 
 	[Export]
-	[CheckRequired("")]
+	[AssertNode("")]
 	public Label ErrorMessage = null;
 
 	[Export]
-	[CheckRequired("")]
+	[AssertNode("")]
 	public Button CloseErrorButton = null;
 
 	#endregion
@@ -101,15 +101,15 @@ public partial class TCUI : UIBase
 	#region Success
 
 	[Export]
-	[CheckRequired("")]
+	[AssertNode("")]
 	public ItemList SuccessItemList = null;
 
 	[Export]
-	[CheckRequired("")]
+	[AssertNode("")]
 	public TextureRect LoadingTex = null;
 
 	[Export]
-	[CheckRequired("")]
+	[AssertNode("")]
 	public TextureRect SuccessTex = null;
 
 	#endregion
@@ -118,7 +118,7 @@ public partial class TCUI : UIBase
 	{
 		base._EnterTree();
 		_app = GetNodeOrNull(AppPath) as IApp;
-		CheckRequiredNode(_app, "App node not found");
+		AssertNode(_app, "App node not found");
 		
 		InitializeFormatModes();
 		FormatModeOptionButton.ItemSelected += OnFormatModeSelected;
