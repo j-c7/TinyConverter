@@ -11,12 +11,20 @@ public partial class App : Node, IApp
 
 	public OutFormats OutFormat { get; set; } = OutFormats.Jpg;
 
-	private float _jpgQuality = 0.9f;
+	private float _quality = 0.9f;
 
-	public float JpgQuality
+	public float Quality
 	{
-		get => _jpgQuality;
-		set => _jpgQuality = Mathf.Clamp(value, 0.0f, 1.0f);
+		get => _quality;
+		set => _quality = Mathf.Clamp(value, 0.0f, 1.0f);
+	}
+
+	private bool _webpLossy = false;
+
+	public bool WebpLossy
+	{
+		get => _webpLossy;
+		set => _webpLossy = value;
 	}
 
 	#endregion
@@ -57,7 +65,7 @@ public partial class App : Node, IApp
 		foreach (var p in _paths)
 		{
 			var err = await ConvertImage(p, Path.GetFileName(p).Replace(Path.GetExtension(p), ""));
-			
+
 			FinalizeTask.Invoke(
 				Res(err, "Successful" + " " + p, Path.GetFileName(p))
 			);
@@ -92,15 +100,19 @@ public partial class App : Node, IApp
 				switch (OutFormat)
 				{
 					case OutFormats.Jpg:
-						err = img.SaveJpg(_outPath + "/" + p_file_name + ".jpg", _jpgQuality);
+						err = img.SaveJpg(_outPath + "/" + p_file_name + ".jpg", _quality);
 						break;
 
 					case OutFormats.Jpeg:
-						err = img.SaveJpg(_outPath + "/" + p_file_name + ".jpeg", _jpgQuality);
+						err = img.SaveJpg(_outPath + "/" + p_file_name + ".jpeg", _quality);
 						break;
 
 					case OutFormats.Png:
 						err = img.SavePng(_outPath + "/" + p_file_name + ".png");
+						break;
+
+					case OutFormats.Webp:
+						err = img.SaveWebp(_outPath + "/" + p_file_name + ".webp", _webpLossy, _quality);
 						break;
 				}
 				if (err != Error.Ok)

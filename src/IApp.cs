@@ -6,7 +6,9 @@ public interface IApp
 {
 	OutFormats OutFormat { get; set; }
 
-	float JpgQuality { get; set; }
+	float Quality { get; set; }
+
+	bool WebpLossy { get; set; }
 
 	string OutPath { get; }
 

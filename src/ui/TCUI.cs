@@ -27,7 +27,8 @@ public partial class TCUI : UIBase
 	{
 		"Jpg",
 		"Jpeg",
-		"Png"
+		"Png",
+		"Webp"
 	};
 
 	public OutFormats _outFormats;
@@ -35,6 +36,10 @@ public partial class TCUI : UIBase
 	[Export]
 	[AssertNode("")]
 	public LineEdit Quality = null;
+
+	[Export]
+	[AssertNode("")]
+	public CheckBox Lossy = null;
 
 	#endregion
 
@@ -128,6 +133,7 @@ public partial class TCUI : UIBase
 		ExportFileDialog.DirSelected += OnExportDirSelected;
 		StartButton.ButtonDown += OnStartButton;
 		Quality.TextChanged += OnQualityChanged;
+		Lossy.Pressed += OnLossyPressed;
 		CloseErrorButton.ButtonDown += OnCloseErrorButton;
 
 		_app.FinalizeTask += OnFinalizeTask;
@@ -142,6 +148,7 @@ public partial class TCUI : UIBase
 		ExportFileDialog.DirSelected -= OnExportDirSelected;
 		StartButton.ButtonDown -= OnStartButton;
 		Quality.TextChanged -= OnQualityChanged;
+		Lossy.Pressed -= OnLossyPressed;
 		CloseErrorButton.ButtonDown -= OnCloseErrorButton;
 
 		_app.FinalizeTask -= OnFinalizeTask;
@@ -155,6 +162,7 @@ public partial class TCUI : UIBase
 
 	private void OnFormatModeSelected(long p_index)
 	{
+		Lossy.Disabled = true;
 		switch (p_index)
 		{
 			//to Jpg
@@ -173,6 +181,13 @@ public partial class TCUI : UIBase
 			case 2:
 				_outFormats = OutFormats.Png;
 				Quality.Editable = false;
+				break;
+			
+			// to Webp
+			case 3:
+				_outFormats = OutFormats.Webp;
+				Quality.Editable = true;
+				Lossy.Disabled = false;
 				break;
 		}
 		_app.OutFormat = _outFormats;
@@ -235,7 +250,11 @@ public partial class TCUI : UIBase
 	{
 		float quality = float.Parse(p_text, CultureInfo.InvariantCulture);
 		quality = Mathf.Clamp(quality, 0.0f, 1.0f);
-		_app.JpgQuality = quality;
+		_app.Quality = quality;
+	}
+
+	private void OnLossyPressed(){
+		_app.WebpLossy = Lossy.ButtonPressed;
 	}
 
 	private void OnCloseErrorButton()

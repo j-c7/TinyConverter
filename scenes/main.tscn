@@ -41,7 +41,7 @@ corner_radius_bottom_left = 10
 [node name="App" type="Node" parent="."]
 script = ExtResource("1_a024d")
 
-[node name="UI" type="Control" parent="." node_paths=PackedStringArray("FormatModeOptionButton", "Quality", "ImportButton", "ImportLabel", "ImportFileDialog", "ExportButton", "ExportLabel", "ExportFileDialog", "StartButton", "ErrorPanel", "ErrorMessage", "CloseErrorButton", "SuccessItemList", "LoadingTex", "SuccessTex")]
+[node name="UI" type="Control" parent="." node_paths=PackedStringArray("FormatModeOptionButton", "Quality", "Lossy", "ImportButton", "ImportLabel", "ImportFileDialog", "ExportButton", "ExportLabel", "ExportFileDialog", "StartButton", "ErrorPanel", "ErrorMessage", "CloseErrorButton", "SuccessItemList", "LoadingTex", "SuccessTex")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -54,6 +54,7 @@ script = ExtResource("1_0wu5y")
 AppPath = NodePath("../App")
 FormatModeOptionButton = NodePath("HBoxContainer/Body/Panel/Format/OptionButton")
 Quality = NodePath("HBoxContainer/Body/Panel/ImporMode/Quality")
+Lossy = NodePath("HBoxContainer/Body/Panel/ImporMode2/Lossy")
 ImportButton = NodePath("HBoxContainer/Body/Panel/Import/Button")
 ImportLabel = NodePath("HBoxContainer/Body/Panel/Import/Panel/Label")
 ImportFileDialog = NodePath("HBoxContainer/Body/Panel/ImportFileDialog")
@@ -214,7 +215,7 @@ offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 20
-text = "Format"
+text = "Out Format"
 
 [node name="OptionButton" type="OptionButton" parent="UI/HBoxContainer/Body/Panel/Format"]
 layout_mode = 1
@@ -248,7 +249,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -96.0
 offset_top = -14.0
-offset_right = 64.0
+offset_right = -26.0
 offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -259,12 +260,31 @@ text = "Quality"
 layout_mode = 0
 offset_left = -95.0
 offset_top = 15.0
-offset_right = 94.0
+offset_right = -27.9375
 offset_bottom = 46.0
 text = "0.9"
 placeholder_text = "0.9"
 max_length = 4
 virtual_keyboard_type = 3
+
+[node name="ImporMode2" type="Control" parent="UI/HBoxContainer/Body/Panel"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 500.0
+offset_top = 140.0
+offset_right = 500.0
+offset_bottom = 140.0
+size_flags_horizontal = 8
+
+[node name="Lossy" type="CheckBox" parent="UI/HBoxContainer/Body/Panel/ImporMode2"]
+layout_mode = 0
+offset_left = -26.0
+offset_top = 11.0
+offset_right = 96.0
+offset_bottom = 46.0
+theme_override_font_sizes/font_size = 19
+disabled = true
+text = "Lossy"
 
 [node name="Import" type="Control" parent="UI/HBoxContainer/Body/Panel"]
 layout_mode = 1
@@ -520,4 +540,4 @@ offset_top = 219.0
 offset_right = 377.0
 offset_bottom = 252.0
 theme_override_font_sizes/font_size = 20
-text = "0.7.5 alpha"
+text = "0.8 alpha"
