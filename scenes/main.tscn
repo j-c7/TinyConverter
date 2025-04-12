@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://s8xuhm73kbmi"]
 
-[ext_resource type="Script" path="res://src/ui/TCUI.cs" id="1_0wu5y"]
-[ext_resource type="Script" path="res://src/App.cs" id="1_a024d"]
+[ext_resource type="Script" uid="uid://o0c0vdblfk1a" path="res://src/ui/TCUI.cs" id="1_0wu5y"]
+[ext_resource type="Script" uid="uid://cxois0b74ofik" path="res://src/App.cs" id="1_a024d"]
 [ext_resource type="Texture2D" uid="uid://4gygw4v3qxk4" path="res://content/textures/background.jpg" id="1_ly3nm"]
 [ext_resource type="Texture2D" uid="uid://c7ftpwvye0iym" path="res://content/icons/flip_head.svg" id="3_kruog"]
 [ext_resource type="Texture2D" uid="uid://d7kwoaw5ghl3" path="res://content/icons/timer_CCW_25.svg" id="3_uw06s"]
-[ext_resource type="Script" path="res://src/ui/Roll.cs" id="4_ekltc"]
+[ext_resource type="Script" uid="uid://b6qe206vq6p2b" path="res://src/ui/Roll.cs" id="4_ekltc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_urigh"]
 bg_color = Color(0, 0, 0, 0.490196)
