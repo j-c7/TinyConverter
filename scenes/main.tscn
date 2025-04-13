@@ -101,60 +101,13 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
 
-[node name="Sidebar" type="Panel" parent="UI/HBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(150, 100)
-layout_mode = 2
-size_flags_horizontal = 0
-metadata/_edit_lock_ = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/HBoxContainer/Sidebar"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 5.0
-offset_right = 5.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.95, 1)
-
-[node name="Title" type="Label" parent="UI/HBoxContainer/Sidebar/VBoxContainer"]
-editor_description = "TODO: Mas adelante substituir por un icono."
-custom_minimum_size = Vector2(1.45519e-11, 100)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 60
-text = "TC"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Github" type="LinkButton" parent="UI/HBoxContainer/Sidebar/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 27
-text = "Github"
-
-[node name="Itchio" type="LinkButton" parent="UI/HBoxContainer/Sidebar/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 27
-text = "Itch.io"
-
-[node name="Youtube" type="LinkButton" parent="UI/HBoxContainer/Sidebar/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_font_sizes/font_size = 27
-text = "Youtube"
-
 [node name="Body" type="Control" parent="UI/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 metadata/_edit_lock_ = true
 
 [node name="Panel" type="Panel" parent="UI/HBoxContainer/Body"]
+self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(800, 512)
 layout_mode = 1
 anchors_preset = 8
@@ -170,6 +123,21 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_urigh")
 metadata/_edit_lock_ = true
+
+[node name="BgPanel" type="Panel" parent="UI/HBoxContainer/Body/Panel"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -201.0
+offset_top = -296.0
+offset_right = 209.0
+offset_bottom = 304.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Panel2" type="Panel" parent="UI/HBoxContainer/Body/Panel"]
 layout_mode = 1
