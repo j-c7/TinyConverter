@@ -1,15 +1,17 @@
-# Tiny Conversor
-Small image format converter.
----------------------------------------------
-![Captura desde 2024-06-01 19-50-14](https://github.com/7acdev/TinyConverter/assets/73777890/9da1a352-4ab6-47a5-a66f-f5efc88cf92c)
+<h1 align="center"> Tiny Converter </h1>
+<h2 align="center"> Small image format converter. </h2>
 
-## Status:
+<p align="center">
+  <img width="600" height="600" src="https://github.com/user-attachments/assets/e9e4b5bc-efc2-4af4-a317-57e5d726a201">
+</p>
+
+<h2 align="center"> Status. </h2>
 > 0.9.x Alpha
 
 > Required Godot 4.4
 ---------------------------------------------
 
-## Features:
+<h2 align="center"> Features. </h2>
 
 - Jpg.
 - Webp.
