@@ -225,6 +225,7 @@ public partial class UIManager : Node
         {
             ErrorPanel.Visible = true;
             ErrorMessage.Text = "Unassigned import path";
+            _lockStartButton = false;
             return;
         }
 
@@ -232,6 +233,7 @@ public partial class UIManager : Node
         {
             ErrorPanel.Visible = true;
             ErrorMessage.Text = "unassigned export path";
+            _lockStartButton = false;
             return;
         }
         SuccessTex.Visible = false;
