@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://s8xuhm73kbmi"]
+[gd_scene load_steps=13 format=3 uid="uid://s8xuhm73kbmi"]
 
 [ext_resource type="Texture2D" uid="uid://4gygw4v3qxk4" path="res://content/textures/background.jpg" id="1_ly3nm"]
 [ext_resource type="Script" uid="uid://c4hi4u8h6qb0u" path="res://src/main/App.cs" id="1_o6xl0"]
@@ -10,19 +10,8 @@
 [ext_resource type="Script" uid="uid://dca0n2m3qdb5" path="res://src/ui/UIManager.cs" id="5_85g3d"]
 [ext_resource type="Script" uid="uid://cuknegmf6wbhm" path="res://src/ui/Roll.cs" id="7_tipki"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_urigh"]
-bg_color = Color(0, 0, 0, 0.490196)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f457g"]
-bg_color = Color(0, 0, 0, 0.247059)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85g3d"]
+bg_color = Color(0, 0, 0, 0.376471)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vhpqf"]
 bg_color = Color(0, 0, 0, 0)
@@ -76,7 +65,7 @@ ExportFileDialog = NodePath("HBoxContainer/Body/Panel/ExportFolderDialog")
 StartButton = NodePath("HBoxContainer/Body/Panel/StartButton")
 ErrorPanel = NodePath("HBoxContainer/Body/Error")
 ErrorMessage = NodePath("HBoxContainer/Body/Error/ErrorMessage")
-CloseErrorButton = NodePath("HBoxContainer/Body/Error/Button")
+CloseErrorButton = NodePath("HBoxContainer/Body/Error/Container/Button")
 SuccessItemList = NodePath("HBoxContainer/Body/Panel/Tasks/SuccessItemList")
 LoadingTex = NodePath("HBoxContainer/Body/Panel/Loading/Loading")
 SuccessTex = NodePath("HBoxContainer/Body/Panel/Loading/Check")
@@ -121,64 +110,30 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_urigh")
 metadata/_edit_lock_ = true
 
 [node name="BgPanel" type="Panel" parent="UI/HBoxContainer/Body/Panel"]
-self_modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -201.0
+offset_left = -199.0
 offset_top = -296.0
-offset_right = 209.0
+offset_right = 202.0
 offset_bottom = 304.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Panel2" type="Panel" parent="UI/HBoxContainer/Body/Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -231.0
-offset_right = 50.0
-offset_bottom = -131.0
-grow_horizontal = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_f457g")
-metadata/_edit_lock_ = true
-
-[node name="Label" type="Label" parent="UI/HBoxContainer/Body/Panel/Panel2"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -30.0
-offset_top = -30.0
-offset_right = 30.0
-offset_bottom = 30.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 56
-text = "TC"
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_85g3d")
 
 [node name="Format" type="Control" parent="UI/HBoxContainer/Body/Panel"]
 layout_mode = 2
 anchors_preset = 0
 offset_left = 305.0
-offset_top = 140.0
+offset_top = -18.61
 offset_right = 305.0
-offset_bottom = 140.0
+offset_bottom = -18.61
 size_flags_horizontal = 0
 
 [node name="Label" type="Label" parent="UI/HBoxContainer/Body/Panel/Format"]
@@ -199,25 +154,18 @@ text = "Out Format"
 
 [node name="OptionButton" type="OptionButton" parent="UI/HBoxContainer/Body/Panel/Format"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
 offset_left = -96.0
 offset_top = 15.0
-offset_right = 96.0
+offset_right = 291.0
 offset_bottom = 46.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="ImporMode" type="Control" parent="UI/HBoxContainer/Body/Panel"]
 layout_mode = 2
 anchors_preset = 0
-offset_left = 500.0
-offset_top = 140.0
-offset_right = 500.0
-offset_bottom = 140.0
+offset_left = 305.0
+offset_top = 42.52
+offset_right = 305.0
+offset_bottom = 42.52
 size_flags_horizontal = 8
 
 [node name="Label" type="Label" parent="UI/HBoxContainer/Body/Panel/ImporMode"]
@@ -240,7 +188,7 @@ text = "Quality"
 layout_mode = 0
 offset_left = -95.0
 offset_top = 15.0
-offset_right = -27.9375
+offset_right = 291.0
 offset_bottom = 46.0
 text = "0.9"
 placeholder_text = "0.9"
@@ -250,10 +198,10 @@ virtual_keyboard_type = 3
 [node name="ImporMode2" type="Control" parent="UI/HBoxContainer/Body/Panel"]
 layout_mode = 2
 anchors_preset = 0
-offset_left = 500.0
-offset_top = 140.0
-offset_right = 500.0
-offset_bottom = 140.0
+offset_left = 231.715
+offset_top = 96.95
+offset_right = 231.715
+offset_bottom = 96.95
 size_flags_horizontal = 8
 
 [node name="Lossy" type="CheckBox" parent="UI/HBoxContainer/Body/Panel/ImporMode2"]
@@ -274,9 +222,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -192.0
-offset_top = -61.0
+offset_top = -99.885
 offset_right = -192.0
-offset_bottom = -61.0
+offset_bottom = -99.885
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
@@ -314,9 +262,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -192.0
-offset_top = -11.0
+offset_top = -44.555
 offset_right = -192.0
-offset_bottom = -11.0
+offset_bottom = -44.555
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
@@ -354,9 +302,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -192.0
-offset_top = 39.0
+offset_top = 11.995
 offset_right = 196.0
-offset_bottom = 99.0002
+offset_bottom = 71.9952
 grow_horizontal = 2
 grow_vertical = 2
 text = "Start
@@ -371,18 +319,17 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -192.0
-offset_top = 105.0
+offset_top = 81.0
 offset_right = 196.0
-offset_bottom = 230.0
+offset_bottom = 273.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_lock_ = true
 
 [node name="SuccessItemList" type="ItemList" parent="UI/HBoxContainer/Body/Panel/Tasks"]
 layout_mode = 2
 offset_top = 36.0
 offset_right = 385.0
-offset_bottom = 123.0
+offset_bottom = 231.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_vhpqf")
 allow_search = false
 
@@ -390,9 +337,9 @@ allow_search = false
 layout_mode = 2
 anchors_preset = 0
 offset_left = 300.0
-offset_top = 364.0
+offset_top = 261.91
 offset_right = 300.0
-offset_bottom = 364.0
+offset_bottom = 261.91
 
 [node name="Panel" type="Panel" parent="UI/HBoxContainer/Body/Panel/Loading"]
 visible = false
@@ -449,8 +396,9 @@ expand_mode = 1
 [node name="ImportFileDialog" type="FileDialog" parent="UI/HBoxContainer/Body/Panel"]
 title = "Import File"
 initial_position = 2
-size = Vector2i(725, 360)
-max_size = Vector2i(1000, 1000)
+size = Vector2i(500, 360)
+max_size = Vector2i(500, 1000)
+content_scale_factor = 0.7
 theme_override_colors/folder_icon_color = Color(1, 0, 0.451201, 1)
 ok_button_text = "Open"
 mode_overrides_title = false
@@ -460,8 +408,9 @@ access = 2
 [node name="ExportFolderDialog" type="FileDialog" parent="UI/HBoxContainer/Body/Panel"]
 title = "Export"
 initial_position = 2
-size = Vector2i(753, 360)
-max_size = Vector2i(1000, 500)
+size = Vector2i(500, 360)
+max_size = Vector2i(500, 500)
+content_scale_factor = 0.7
 theme_override_colors/folder_icon_color = Color(1, 0, 0.451201, 1)
 ok_button_text = "Select Current Folder"
 mode_overrides_title = false
@@ -476,10 +425,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -125.0
-offset_right = 250.0
-offset_bottom = 125.0
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_wxlf7")
@@ -501,9 +450,16 @@ text = "Unassigned path"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="UI/HBoxContainer/Body/Error"]
-custom_minimum_size = Vector2(100, 50)
+[node name="Container" type="NinePatchRect" parent="UI/HBoxContainer/Body/Error"]
 layout_mode = 2
+
+[node name="Button" type="Button" parent="UI/HBoxContainer/Body/Error/Container"]
+custom_minimum_size = Vector2(100, 49.785)
+layout_mode = 2
+offset_left = 145.0
+offset_top = 144.0
+offset_right = 245.0
+offset_bottom = 193.785
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "OK"
@@ -515,9 +471,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 288.0
-offset_top = 219.0
-offset_right = 377.0
-offset_bottom = 252.0
+offset_left = 108.0
+offset_top = 272.0
+offset_right = 196.0
+offset_bottom = 305.0
 theme_override_font_sizes/font_size = 20
 text = "0.9 alpha"
