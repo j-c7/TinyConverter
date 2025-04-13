@@ -1,11 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://s8xuhm73kbmi"]
+[gd_scene load_steps=14 format=3 uid="uid://s8xuhm73kbmi"]
 
-[ext_resource type="Script" uid="uid://o0c0vdblfk1a" path="res://src/ui/TCUI.cs" id="1_0wu5y"]
-[ext_resource type="Script" uid="uid://cxois0b74ofik" path="res://src/App.cs" id="1_a024d"]
 [ext_resource type="Texture2D" uid="uid://4gygw4v3qxk4" path="res://content/textures/background.jpg" id="1_ly3nm"]
+[ext_resource type="Script" uid="uid://c4hi4u8h6qb0u" path="res://src/main/App.cs" id="1_o6xl0"]
+[ext_resource type="Script" uid="uid://d1wt3o1fpexfw" path="res://src/formats/JpgFormat.cs" id="1_tefeu"]
+[ext_resource type="Script" uid="uid://bijhkj5lcd6xi" path="res://src/formats/WebpFormat.cs" id="2_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://c7ftpwvye0iym" path="res://content/icons/flip_head.svg" id="3_kruog"]
+[ext_resource type="Script" uid="uid://d0d1ow1v8wto5" path="res://src/formats/PngFormat.cs" id="3_tipki"]
 [ext_resource type="Texture2D" uid="uid://d7kwoaw5ghl3" path="res://content/icons/timer_CCW_25.svg" id="3_uw06s"]
-[ext_resource type="Script" uid="uid://b6qe206vq6p2b" path="res://src/ui/Roll.cs" id="4_ekltc"]
+[ext_resource type="Script" uid="uid://dca0n2m3qdb5" path="res://src/ui/UIManager.cs" id="5_85g3d"]
+[ext_resource type="Script" uid="uid://cuknegmf6wbhm" path="res://src/ui/Roll.cs" id="7_tipki"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_urigh"]
 bg_color = Color(0, 0, 0, 0.490196)
@@ -39,7 +42,16 @@ corner_radius_bottom_left = 10
 [node name="Main" type="Node"]
 
 [node name="App" type="Node" parent="."]
-script = ExtResource("1_a024d")
+script = ExtResource("1_o6xl0")
+
+[node name="ToJpg" type="Node" parent="App"]
+script = ExtResource("1_tefeu")
+
+[node name="ToWebp" type="Node" parent="App"]
+script = ExtResource("2_o6xl0")
+
+[node name="ToPng" type="Node" parent="App"]
+script = ExtResource("3_tipki")
 
 [node name="UI" type="Control" parent="." node_paths=PackedStringArray("FormatModeOptionButton", "Quality", "Lossy", "ImportButton", "ImportLabel", "ImportFileDialog", "ExportButton", "ExportLabel", "ExportFileDialog", "StartButton", "ErrorPanel", "ErrorMessage", "CloseErrorButton", "SuccessItemList", "LoadingTex", "SuccessTex")]
 layout_mode = 3
@@ -50,7 +62,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("1_0wu5y")
+script = ExtResource("5_85g3d")
 AppPath = NodePath("../App")
 FormatModeOptionButton = NodePath("HBoxContainer/Body/Panel/Format/OptionButton")
 Quality = NodePath("HBoxContainer/Body/Panel/ImporMode/Quality")
@@ -447,7 +459,7 @@ grow_vertical = 2
 pivot_offset = Vector2(10, 10)
 texture = ExtResource("3_uw06s")
 expand_mode = 1
-script = ExtResource("4_ekltc")
+script = ExtResource("7_tipki")
 
 [node name="Check" type="TextureRect" parent="UI/HBoxContainer/Body/Panel/Loading"]
 visible = false
@@ -540,4 +552,4 @@ offset_top = 219.0
 offset_right = 377.0
 offset_bottom = 252.0
 theme_override_font_sizes/font_size = 20
-text = "0.8 alpha"
+text = "0.9 alpha"

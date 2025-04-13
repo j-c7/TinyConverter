@@ -1,4 +1,4 @@
-namespace TinyConverter;
+namespace TinyConverter.UI;
 
 public partial class Roll : TextureRect
 {
