@@ -96,23 +96,17 @@ size_flags_horizontal = 3
 metadata/_edit_lock_ = true
 
 [node name="Panel" type="Panel" parent="UI/HBoxContainer/Body"]
-self_modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(800, 512)
+self_modulate = Color(1, 1, 1, 0.65098)
+custom_minimum_size = Vector2(600, 512)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_lock_ = true
 
 [node name="BgPanel" type="Panel" parent="UI/HBoxContainer/Body/Panel"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -130,86 +124,62 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_85g3d")
 [node name="Format" type="Control" parent="UI/HBoxContainer/Body/Panel"]
 layout_mode = 2
 anchors_preset = 0
-offset_left = 305.0
-offset_top = -18.61
-offset_right = 305.0
-offset_bottom = -18.61
 size_flags_horizontal = 0
 
 [node name="Label" type="Label" parent="UI/HBoxContainer/Body/Panel/Format"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -95.0
-offset_top = -14.0
-offset_right = 36.0
-offset_bottom = 14.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 10.0
+offset_right = 122.0
+offset_bottom = 28.0
 theme_override_font_sizes/font_size = 20
 text = "Out Format"
 
 [node name="OptionButton" type="OptionButton" parent="UI/HBoxContainer/Body/Panel/Format"]
-layout_mode = 1
-offset_left = -96.0
-offset_top = 15.0
-offset_right = 291.0
-offset_bottom = 46.0
+layout_mode = 0
+offset_left = 10.0
+offset_top = 28.065
+offset_right = 590.0
+offset_bottom = 60.065
 
 [node name="ImporMode" type="Control" parent="UI/HBoxContainer/Body/Panel"]
 layout_mode = 2
 anchors_preset = 0
-offset_left = 305.0
-offset_top = 42.52
-offset_right = 305.0
-offset_bottom = 42.52
+offset_top = 59.22
+offset_bottom = 59.22
 size_flags_horizontal = 8
 
 [node name="Label" type="Label" parent="UI/HBoxContainer/Body/Panel/ImporMode"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -96.0
-offset_top = -14.0
-offset_right = -26.0
-offset_bottom = 14.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 10.0
+offset_right = 80.0
+offset_bottom = 28.0
 theme_override_font_sizes/font_size = 20
 text = "Quality"
 
 [node name="Quality" type="LineEdit" parent="UI/HBoxContainer/Body/Panel/ImporMode"]
 layout_mode = 0
-offset_left = -95.0
-offset_top = 15.0
-offset_right = 291.0
-offset_bottom = 46.0
+offset_left = 10.0
+offset_top = 30.585
+offset_right = 590.0
+offset_bottom = 61.585
 text = "0.9"
 placeholder_text = "0.9"
 max_length = 4
+emoji_menu_enabled = false
 virtual_keyboard_type = 3
 
 [node name="ImporMode2" type="Control" parent="UI/HBoxContainer/Body/Panel"]
 layout_mode = 2
 anchors_preset = 0
-offset_left = 231.715
-offset_top = 96.95
-offset_right = 231.715
-offset_bottom = 96.95
+offset_top = 121.21
+offset_bottom = 121.21
 size_flags_horizontal = 8
 
 [node name="Lossy" type="CheckBox" parent="UI/HBoxContainer/Body/Panel/ImporMode2"]
 layout_mode = 0
-offset_left = -26.0
-offset_top = 11.0
-offset_right = 96.0
-offset_bottom = 46.0
+offset_left = 10.0
+offset_right = 89.0
+offset_bottom = 35.0
 theme_override_font_sizes/font_size = 19
 disabled = true
 text = "Lossy"
@@ -221,10 +191,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -192.0
-offset_top = -99.885
-offset_right = -192.0
-offset_bottom = -99.885
+offset_left = -290.0
+offset_top = -139.7
+offset_right = -290.0
+offset_bottom = -139.7
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
@@ -232,20 +202,19 @@ metadata/_edit_lock_ = true
 [node name="Panel" type="Panel" parent="UI/HBoxContainer/Body/Panel/Import"]
 layout_mode = 0
 offset_left = 127.0
-offset_right = 388.0
+offset_right = 579.0
 offset_bottom = 45.0
-metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="UI/HBoxContainer/Body/Panel/Import/Panel"]
 layout_mode = 0
-offset_right = 260.0
-offset_bottom = 40.0
+offset_left = 2.0
+offset_right = 450.0
+offset_bottom = 44.0
 text = "..."
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 text_overrun_behavior = 3
-metadata/_edit_lock_ = true
 
 [node name="Button" type="Button" parent="UI/HBoxContainer/Body/Panel/Import"]
 layout_mode = 0
@@ -261,10 +230,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -192.0
-offset_top = -44.555
-offset_right = -192.0
-offset_bottom = -44.555
+offset_left = -290.0
+offset_top = -88.915
+offset_right = -290.0
+offset_bottom = -88.915
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
@@ -272,20 +241,19 @@ metadata/_edit_lock_ = true
 [node name="Panel" type="Panel" parent="UI/HBoxContainer/Body/Panel/ExportPath"]
 layout_mode = 0
 offset_left = 127.0
-offset_right = 388.0
+offset_right = 579.0
 offset_bottom = 45.0
-metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="UI/HBoxContainer/Body/Panel/ExportPath/Panel"]
 layout_mode = 0
-offset_right = 260.0
-offset_bottom = 40.0
+offset_left = 2.0
+offset_right = 449.0
+offset_bottom = 44.0
 text = "..."
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 text_overrun_behavior = 3
-metadata/_edit_lock_ = true
 
 [node name="Button" type="Button" parent="UI/HBoxContainer/Body/Panel/ExportPath"]
 layout_mode = 0
@@ -301,15 +269,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -192.0
-offset_top = 11.995
-offset_right = 196.0
-offset_bottom = 71.9952
+offset_left = -290.0
+offset_top = -35.76
+offset_right = 290.0
+offset_bottom = 24.005
 grow_horizontal = 2
 grow_vertical = 2
 text = "Start
 "
-metadata/_edit_lock_ = true
 
 [node name="Tasks" type="Panel" parent="UI/HBoxContainer/Body/Panel"]
 layout_mode = 1
@@ -318,28 +285,26 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -192.0
-offset_top = 81.0
-offset_right = 196.0
-offset_bottom = 273.0
+offset_left = -290.0
+offset_top = 32.0
+offset_right = 290.0
+offset_bottom = 275.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="SuccessItemList" type="ItemList" parent="UI/HBoxContainer/Body/Panel/Tasks"]
 layout_mode = 2
 offset_top = 36.0
-offset_right = 385.0
-offset_bottom = 231.0
+offset_right = 579.0
+offset_bottom = 242.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_vhpqf")
 allow_search = false
 
 [node name="Loading" type="Control" parent="UI/HBoxContainer/Body/Panel"]
 layout_mode = 2
 anchors_preset = 0
-offset_left = 300.0
-offset_top = 261.91
-offset_right = 300.0
-offset_bottom = 261.91
+offset_top = 350.0
+offset_bottom = 350.0
 
 [node name="Panel" type="Panel" parent="UI/HBoxContainer/Body/Panel/Loading"]
 visible = false
@@ -361,16 +326,13 @@ text_overrun_behavior = 3
 [node name="Loading" type="TextureRect" parent="UI/HBoxContainer/Body/Panel/Loading"]
 visible = false
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.043
-anchor_top = 0.521
-anchor_right = 0.043
-anchor_bottom = 0.521
-offset_left = 91.0
-offset_top = 9.0
-offset_right = 111.0
-offset_bottom = 29.0
-grow_vertical = 2
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 290.0
+offset_right = 310.0
+offset_bottom = 20.0
+grow_horizontal = 2
 pivot_offset = Vector2(10, 10)
 texture = ExtResource("3_uw06s")
 expand_mode = 1
@@ -378,17 +340,10 @@ script = ExtResource("7_tipki")
 
 [node name="Check" type="TextureRect" parent="UI/HBoxContainer/Body/Panel/Loading"]
 visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.043
-anchor_top = 0.521
-anchor_right = 0.043
-anchor_bottom = 0.521
-offset_left = 91.0
-offset_top = 9.0
-offset_right = 111.0
-offset_bottom = 29.0
-grow_vertical = 2
+layout_mode = 0
+offset_left = 290.0
+offset_right = 310.0
+offset_bottom = 20.0
 pivot_offset = Vector2(10, 10)
 texture = ExtResource("3_kruog")
 expand_mode = 1
@@ -471,9 +426,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 108.0
-offset_top = 272.0
-offset_right = 196.0
-offset_bottom = 305.0
+offset_left = 200.0
+offset_top = 271.0
+offset_right = 288.0
+offset_bottom = 304.0
 theme_override_font_sizes/font_size = 20
 text = "0.9 alpha"
