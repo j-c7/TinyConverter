@@ -21,6 +21,12 @@ config/icon="uid://drlojmn76ur4j"
 
 AttributesManager="*res://src/core/AttributesManager.cs"
 
+[display]
+
+window/size/viewport_width=800
+window/size/viewport_height=512
+window/size/resizable=false
+
 [dotnet]
 
 project/assembly_name="Tiny Converter"

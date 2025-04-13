@@ -481,7 +481,7 @@ expand_mode = 1
 [node name="ImportFileDialog" type="FileDialog" parent="UI/HBoxContainer/Body/Panel"]
 title = "Import File"
 initial_position = 2
-size = Vector2i(1000, 500)
+size = Vector2i(725, 360)
 max_size = Vector2i(1000, 1000)
 theme_override_colors/folder_icon_color = Color(1, 0, 0.451201, 1)
 ok_button_text = "Open"
@@ -492,7 +492,7 @@ access = 2
 [node name="ExportFolderDialog" type="FileDialog" parent="UI/HBoxContainer/Body/Panel"]
 title = "Export"
 initial_position = 2
-size = Vector2i(1000, 500)
+size = Vector2i(753, 360)
 max_size = Vector2i(1000, 500)
 theme_override_colors/folder_icon_color = Color(1, 0, 0.451201, 1)
 ok_button_text = "Select Current Folder"
