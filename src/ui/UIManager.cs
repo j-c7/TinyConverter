@@ -142,6 +142,8 @@ public partial class UIManager : Node
         // Initlialize Quality
         OnQualityChanged(Quality.Text);
         OnLossyPressed();
+
+        OnFormatModeSelected(FormatModeOptionButton.Selected);
     }
 
     public override void _ExitTree()
