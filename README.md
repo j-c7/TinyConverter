@@ -2,7 +2,7 @@
 <h2 align="center"> Small image format converter. </h2>
 
 <p align="center">
-  <img width="600" height="600" src="https://github.com/user-attachments/assets/e9e4b5bc-efc2-4af4-a317-57e5d726a201">
+  <img width="1280" height="720" src="https://github.com/user-attachments/assets/dc73322a-2ba5-4043-afa0-f1dcbc130512">
 </p>
 
 <h2 align="center"> Status. </h2>
