@@ -6,7 +6,7 @@
 </p>
 
 <h2 align="center"> Status. </h2>
-> 0.9.x Alpha
+> 1.0.x Beta
 
 > Required Godot 4.4
 ---------------------------------------------
