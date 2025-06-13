@@ -10,5 +10,5 @@ public partial class PngFormat : FormatterNode
 
     public override async Task<Error> ConvertImage(string p_loadPath, string p_outPath, string p_fileName) => 
         await ConvertProcess(p_loadPath, img => 
-            img.SavePng(string.Concat(GetFinalOutPath(p_outPath, p_fileName), _formatName)));
+            img.SavePng(GetFinalOutPath(p_outPath, p_fileName, _formatName)));
 }

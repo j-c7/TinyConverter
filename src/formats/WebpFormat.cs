@@ -22,5 +22,5 @@ public partial class WebpFormat : FormatterNode
 
     public override async Task<Error> ConvertImage(string p_loadPath, string p_outPath, string p_fileName) =>
         await ConvertProcess(p_loadPath, img =>
-            img.SaveWebp(string.Concat(GetFinalOutPath(p_outPath, p_fileName), _formatName), _lossy, _quality));
+            img.SaveWebp(GetFinalOutPath(p_outPath, p_fileName, _formatName), _lossy, _quality));
 }

@@ -16,7 +16,7 @@ public partial class JpgFormat : FormatterNode
         _quality = Mathf.Clamp(q, 0.0f, 1.0f);
     }
 
-    public override async Task<Error> ConvertImage(string p_loadPath, string p_outPath, string p_fileName) => 
-        await ConvertProcess(p_loadPath, img => 
-            img.SaveJpg(string.Concat(GetFinalOutPath(p_outPath, p_fileName), _formatName), _quality));
+    public override async Task<Error> ConvertImage(string p_loadPath, string p_outPath, string p_fileName) =>
+        await ConvertProcess(p_loadPath, img =>
+            img.SaveJpg(GetFinalOutPath(p_outPath, p_fileName, _formatName), _quality));
 }
