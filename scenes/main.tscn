@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://s8xuhm73kbmi"]
+[gd_scene load_steps=12 format=3 uid="uid://s8xuhm73kbmi"]
 
 [ext_resource type="Texture2D" uid="uid://4gygw4v3qxk4" path="res://content/textures/background.jpg" id="1_ly3nm"]
 [ext_resource type="Script" uid="uid://c4hi4u8h6qb0u" path="res://src/main/App.cs" id="1_o6xl0"]
@@ -9,9 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://d7kwoaw5ghl3" path="res://content/icons/timer_CCW_25.svg" id="3_uw06s"]
 [ext_resource type="Script" uid="uid://dca0n2m3qdb5" path="res://src/ui/UIManager.cs" id="5_85g3d"]
 [ext_resource type="Script" uid="uid://cuknegmf6wbhm" path="res://src/ui/Roll.cs" id="7_tipki"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85g3d"]
-bg_color = Color(0, 0, 0, 0.376471)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vhpqf"]
 bg_color = Color(0, 0, 0, 0)
@@ -72,6 +69,7 @@ SuccessTex = NodePath("HBoxContainer/Body/Panel/Loading/Check")
 metadata/_edit_lock_ = true
 
 [node name="Background" type="TextureRect" parent="UI"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -96,7 +94,6 @@ size_flags_horizontal = 3
 metadata/_edit_lock_ = true
 
 [node name="Panel" type="Panel" parent="UI/HBoxContainer/Body"]
-self_modulate = Color(1, 1, 1, 0.65098)
 custom_minimum_size = Vector2(600, 512)
 layout_mode = 1
 anchors_preset = 15
@@ -104,22 +101,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="BgPanel" type="Panel" parent="UI/HBoxContainer/Body/Panel"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -199.0
-offset_top = -296.0
-offset_right = 202.0
-offset_bottom = 304.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_85g3d")
 
 [node name="Format" type="Control" parent="UI/HBoxContainer/Body/Panel"]
 layout_mode = 2

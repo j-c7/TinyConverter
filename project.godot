@@ -11,11 +11,11 @@ config_version=5
 [application]
 
 config/name="Tiny Converter"
-config/tags=PackedStringArray(".net8", "app", "c#", "portfolio")
+config/tags=PackedStringArray(".net", "app", "c#", "portfolio")
 run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 boot_splash/image="res://content/icons/timer_CCW_25.svg"
-config/icon="uid://drlojmn76ur4j"
+config/icon="uid://bblnim37o3gql"
 
 [autoload]
 
@@ -33,4 +33,5 @@ project/assembly_name="Tiny Converter"
 
 [rendering]
 
-renderer/rendering_method="mobile"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
